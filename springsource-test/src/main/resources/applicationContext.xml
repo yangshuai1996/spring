@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="com.huawei.it.Person" name="person">
+		<property name="id" value="1"/>
+		<property name="name" value="zhangsan"/>
+	</bean>
+	<!--<bean class="com.huawei.it.MyBeanPostProcessor"></bean>-->
+	<!--循环依赖-->
+	<bean class="com.huawei.it.A" name="a">
+		<property name="b" ref="b"/>
+	</bean>
+
+	<bean class="com.huawei.it.B" name="b">
+		<property name="a" ref="a"/>
+	</bean>
+</beans>
